@@ -1,0 +1,54 @@
+
+<template name="mainPage">
+
+    {{#if driverTabVisibleFn}}
+    
+        {{> driverNavTemplate}}
+
+    {{/if}}
+
+    {{#if taxiTabVisibleFn}}
+        
+        {{> taxiNavTemplate}}
+
+    {{/if}}
+
+{{> sidenavTemplate}}
+
+{{#if filtered}}
+<div class="searched-location">
+    
+    <h4>Results for Location: 
+        
+        <i class="fa fa-map-marker" style="font-size: 20px; color:black ;margin-right: 10px;margin-left: 10px;"></i>
+        {{filteredLocation}} 
+        <a href="#" class="fa fa-times" id="close" style="font-size: 12px; color:black ;margin-left: 20px;"></a>
+
+    </h4>
+
+</div><br>
+{{/if}}
+
+<div class="main-content-container">
+
+    {{#if driverTabVisibleFn}}
+        {{#each driver}}        
+            
+            {{> driverCardTemplate}}
+            <hr class="mainhr">
+        
+        {{/each}}
+    {{/if}}    
+        
+       {{#if taxiTabVisibleFn}}
+            {{#each taxi}}
+            
+                {{> taxiCardTemplate}}
+                <hr class="mainhr">
+            
+            {{/each}}
+        {{/if}}
+
+</div>
+
+</template>

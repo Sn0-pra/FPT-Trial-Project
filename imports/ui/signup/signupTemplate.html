@@ -1,0 +1,161 @@
+<template name="signupNavTemplate">
+
+    <div class="navTemplate">
+         <nav style="border: 1px solid transparent;">
+             <nav-item><a href="#" style="color: rgba(0, 0, 0, 0.75);" class="getApp">Get App</a></nav-item>
+             <nav-item class="user-link"><a href="#" data-toggle="modal" data-target="#modalForm">Login</a></nav-item>
+         </nav>
+    </div>
+ 
+ </template>
+
+ <template name="modalForm">
+    <div id="modalForm" class="modal fade" role="dialog" >
+        <form class="modal-dialog" style="padding: 0px;height: fit-content;">
+            <div class="modal-content">
+                
+                <div class="modal-header" id="modalHeader">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-title"><h3>Login</h3></div>
+                </div>
+                
+                <div class="modal-body-form" id="buisnessModal">
+                    
+                    <label for="phone">Contact Number</label><br>
+                    <input name="phone" class="js-input" type="tel"><br>
+    
+                    <label for="password">Password</label><br>
+                    <input name="password" class="js-input" type="password"><br>
+                    
+                </div>
+                
+                <div class="modal-footer" id="modalFooter">
+                    <a href="#" class="js-forgotpass" style="float: left;">Forgot Password</a>
+                    <input type="submit" id="loginButton" class="btn btn-success" style="width: 80px;padding: 1%;" value="Login">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</template>
+
+
+<template name="formHeadTemplate">
+    
+    <div class="form-layout">
+
+        <div class="signup-heading">FPT </div>
+        <div class="sub-heading">Signup to join FPT community either as user or service provider</div>
+        <div id="role-option">
+            <button class="btn btn-default" id="role-option-driver">Driver</button>
+            <button class="btn btn-default" id="role-option-taxi">Taxi</button>
+        </div>
+
+    </div>
+
+</template>
+
+<template name="formTemplate">
+   
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6"> 
+                {{#if driverFormVisibleFn}}
+                
+                    <header class="signupHeader">
+                        <h2>Driver Form</h2>
+                        <h5 style="margin-top: 20px;"><u>To get hired as driver for users</u></h5>
+                    </header>
+                    
+                    {{> driverFormTemplate}}
+                    
+                {{/if}} 
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6"> 
+                {{#if taxiFormVisibleFn}}
+                
+                    <header class="signupHeader">
+                        <h2>Taxi Form</h2>
+                        <h5 style="margin-top: 20px;"><u>To provide taxi services for users</u></h5>
+                    </header>
+                        {{> taxiFormTemplate}}
+                        
+                {{/if}} 
+            </div>
+
+        </div>
+
+</template>
+
+<template name="driverFormTemplate">
+
+    <form class="driverForm">
+
+        <label for="name">Name</label><br>
+        <input name="name" class="js-input" type="text" placeholder="Rutuja Pisalkar"><br>
+
+        <label for="phone">Contact Number</label><br>
+        <input name="phone" class="js-input" type="tel" placeholder="9090909090"><br>
+        
+        <label for="location">Location</label><br>
+        <input name="location" class="js-input" placeholder="City" type="text"><br>
+
+        <label for="license">Driving License Number</label><br>
+        <input name="license" class="js-input" type="number" placeholder="XXXXXXXXXXXXXXX"><br>
+
+        <label for="email">Email</label><br>
+        <input name="email" class="js-input" type="email" placeholder="abc@xyzmail.com"><br>
+
+        <label for="password1">Password</label><br>
+        <input name="password1" class="js-input" type="password"><br>
+
+        <label for="password2">Confirm Password</label><br>
+        <input name="password2" class="js-input" type="password"><br>
+        
+        <label for="charges">Charges</label><br>
+        Rs. <input name="charges" class="js-input-charges" type="number"> / km<br>
+        
+        <button type="submit" id="driver-js-submit" class="btn btn-success" style="float: right; margin-top: 10px;">Submit</button>
+
+    </form>
+
+</template>
+
+<template name="taxiFormTemplate">
+
+    <form class="taxiForm">
+
+        <label for="name">Name</label><br>
+        <input name="name" class="js-input" type="text" placeholder="Rutuja Pisalkar"><br>
+
+        <label for="phone">Contact Number</label><br>
+        <input name="phone" class="js-input" type="tel" placeholder="9090909090"><br>
+        
+        <label for="location">Location</label><br>
+        <input name="location" class="js-input" placeholder="City" type="text"><br>
+
+        <label for="taxiNo">Taxi Number</label><br>
+        <input name="taxiNo" class="js-input" type="number" placeholder="XXXXXXX"><br>
+
+        <label for="taxiModel">Taxi Model</label><br>
+        <input name="taxiModel" class="js-input" type="text" placeholder="Swift Desire"><br>
+
+        <label for="email">Email</label><br>
+        <input name="email" class="js-input" type="email" placeholder="abc@xyzmail.com"><br>
+
+        <label for="password1">Password</label><br>
+        <input name="password1" class="js-input" type="password"><br>
+
+        <label for="password2">Confirm Password</label><br>
+        <input name="password2" class="js-input" type="password"><br>
+        
+        <label for="charges">Charges</label><br>
+        Rs. <input name="charges" class="js-input-charges" type="number"> / km<br>
+        
+        <button type="submit" id="taxi-js-submit" class="btn btn-success" style="float: right; margin-top: 10px;">Submit</button>
+
+    </form>
+
+
+</template>

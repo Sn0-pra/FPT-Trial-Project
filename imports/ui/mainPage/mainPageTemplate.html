@@ -1,0 +1,136 @@
+<template name="sidenavTemplate">
+
+    <div class="sidenav">
+            
+        <button class="btn btn-basic" id="driver-nav-tab" style="width: 49%;background-color: white;">Drivers</button>
+        <button class="btn btn-basic" id="taxi-nav-tab" style="width: 49%;background-color: white;">Taxis</button>
+        
+        <div class="container">* Extra charges for overnight stay or as per driver can be applied.</div>
+
+        <hr style="height: 1px; background-color: rgba(219, 219, 219, 0.75);">
+
+        <div class="searchBox">
+            <input id="searchIp" class="js-search2" type="text" placeholder="Location">
+            <button class="btn btn-info" type="submit" id="searchLocationButton2">Search</button>
+        </div>
+       
+    </div>
+
+</template>
+
+<template name="driverNavTemplate">
+
+   <div class="navTemplate2">
+    <nav>
+        <nav-item style="text-align: center;"> Driver List</nav-item>
+    </nav>  
+   </div>
+
+</template>
+<template name="taxiNavTemplate">
+
+    <div class="navTemplate2">
+     <nav>
+         <nav-item style="text-align: center;"> Taxi List</nav-item>
+     </nav>  
+    </div>
+ 
+ </template>
+
+<template name="taxiCardTemplate">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="column">
+
+                <div class="row-xs-2 row-sm-2 row-md-2">
+                    <div class="block-title">{{name}}</div>
+                </div><br>
+                
+                <div class="row-xs-8 row-sm-8 row-md-8">
+                    <div class="row">
+                        
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="imageblock"></div>
+                        </div>
+                        
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <label for="location">Location:</label>
+                            <div class="value" name="location">{{location}}</div><br>
+                            <label for="number">Contact Number:</label>
+                            <div class="value" name="number">{{phone}}</div>
+                        </div>
+                        
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <label for="model">Taxi Model:</label>
+                            <div class="value" name="model">{{taxiModel}}</div><br>
+                            <label for="taxi-no">Taxi Number:</label>
+                            <div class="value" name="taxi-no">{{taxiNo}}</div><br>
+                        </div>
+                        
+                        <div class="col-xs-2 col-sm-2 col-md-2">
+                            <label for="rartings">Ratings:</label>
+                            <div class="value" name="ratings"><i class="fa fa-star" style="color: goldenrod;margin-right:5px"></i> {{rating}} </div><br>   
+                            <label for="charges">Charges:</label>
+                            <div class="value" name="charges">Rs. {{charges}} \ km</div>
+                        </div>
+                    
+                    </div>
+                </div><br>
+                
+                <div class="row-xs-2 row-sm-2 row-md-2" style="float: right;">
+                    {{> starsRating _id=_id class='taxi_star_rating' mutable=true size=18}}
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="driverCardTemplate">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="column">
+
+                <div class="row-xs-2 row-sm-2 row-md-2">
+                    <div class="block-title">{{name}}</div>
+                </div><br>
+
+                <div class="row-xs-8 row-sm-8 row-md-8">
+                    
+                    <div class="row">
+                        
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="person-photo"></div>
+                        </div>
+                        
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <label for="location">Location:</label>
+                            <div class="value" name="location">{{location}}</div><br>
+                            <label for="number">Contact Number:</label>
+                            <div class="value" name="number">{{phone}}</div>
+                        </div>
+                        
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <label for="rartings">Ratings:</label>
+                            <div class="value" name="ratings"><i class="fa fa-star" style="color: goldenrod;margin-right:5px"></i> {{rating}} </div><br>   
+                            <label for="charges">Charges:</label>
+                            <div class="value" name="charges">Rs. {{charges}} \ km</div>
+                        </div>
+                   
+                    </div>
+               
+                </div><br>
+               
+                <div class="row-xs-2 row-sm-2 row-md-2" style="float: right;">
+                    {{> starsRating _id=_id class='driver_star_rating' mutable=true size=18}}
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</template>

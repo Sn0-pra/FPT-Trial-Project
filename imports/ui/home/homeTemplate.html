@@ -1,0 +1,238 @@
+<template name="navTemplate">
+
+   <div class="navTemplate">
+        <nav style="border: 1px solid transparent;">
+            
+            <nav-item><a href="#" style="color: rgba(0, 0, 0, 0.75);" class="getApp">Get App</a></nav-item>
+            <!-- <nav-item class="user-link"><a href="#" data-toggle="modal" data-target="#modalForm">Login</a></nav-item> -->
+            
+            <nav-item class="user-link">
+               <a href="/signup" id="signupDrop">Buisness</a>
+            </nav-item>
+       
+        </nav>
+   </div>
+
+</template>
+
+<template name="homeHeadTemplate">
+
+    <div class="head-container">
+            
+        <div class="row">
+    
+            <div class="col-xs-11 col-sm-6 col-md-4">
+                <div class="search-container">
+                    
+                    <div class="location-search">
+                       
+                        <div class="welcome-box-title">FPT</div>
+                       
+                        <div class="label-container">Easy and quick search of travel companion for your desired location.</div>
+                            <input id="searchIp" type="text" class="js-search" placeholder="Location"><br>
+                            <a href="#" class="btn btn-info" id="searchLocationButton" style="width: 100%;margin-top:20px" data-toggle="modal" data-target="#searchResultModal">Search</a>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="col-xs-1 col-sm-6 col-md-8" style="padding-top: 30px;"><div class="image-block"></div> </div>
+
+        </div>
+    </div>
+
+</template>
+
+<template name="searchResultModal">
+    <div id="searchResultModal" class="modal fade" role="dialog" >
+
+        <form class="modal-dialog" style="padding: 0px;height: fit-content;">
+                <div class="modal-content">
+                
+                    <div class="modal-header" id="modalHeader">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="searchResult">
+                            
+                            {{#if filtered}}
+                                <h3>
+                                    Results for Location:
+                                    <i class="fa fa-map-marker" style="font-size: 20px; color:black ;margin-right: 5px;"></i> 
+                                    {{filteredLocation}}
+                                </h3>
+                                <h5>Available Drivers: {{driverCount}}</h5>
+                                <h5>Available Taxis: {{taxiCount}}</h5>
+                            {{/if}}  
+
+                        </div>
+                    </div>
+                    
+                    </div>
+
+                    <div class="modal-body" style="background-color: white;">
+
+                        {{#if filtered}}
+
+                        <div class="dataTable">
+                            <div class="row">
+                                
+                                <div class="col-md-6 col-xs-6">
+                                    
+                                    <table class="table">
+                                        <tr>
+                                            <th>Driver</th><th>Rating</th>
+                                        </tr>
+                                        {{#each driver}}
+                                        <tr>
+                                            <td>{{name}}</td> 
+                                            <td>
+                                                <i class="fa fa-star" style="font-size: 12px; color:goldenrod ;margin-right: 5px;"></i> 
+                                                {{rating}}
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </table>
+                                
+                                </div>
+                                
+                                <div class="col-md-6 col-xs-6">
+                                   
+                                    <table class="table">
+                                        <tr>
+                                            <th>Taxi</th><th>Rating</th>
+                                        </tr>
+                                        {{#each taxi}}
+                                        <tr>
+                                            <td>{{name}}</td> 
+                                            <td>
+                                                <i class="fa fa-star" style="font-size: 12px; color:goldenrod ;margin-right: 5px;"></i> 
+                                                {{rating}}
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </table>
+                                
+                                </div>
+                            
+                            </div>
+                        </div>
+
+                        {{/if}}
+
+                        <hr>
+
+                        <div class="modal-title" style="padding-left: 30px; padding-top: 10px;"><h4>For detailed info:</h4></div><br>
+
+                        <div class="modal-body-form">
+
+                            <div class="contactForm">
+                                <label for="phone">Contact Number</label><br>
+                                <input name="phone" class="js-input" type="tel" id="phone"><br>
+                                <input type="submit" id="getOtp" class="btn btn-success" value="Submit">
+                            </div>
+    
+                            <div class="otpForm">
+                                <label for="otp">OTP</label><br>
+                                <input name="otp" class="js-input" type="number" id="otp"><br>
+                                <input type="submit" id="verify" class="btn btn-success" value="Verify">
+                            </div>
+
+                        </div>
+    
+                    </div>
+                    
+                    <div class="modal-footer" id="modalFooter">
+                        
+    
+                </div>
+            </form>
+
+    </div>
+</template>
+
+<template name="mainContentTemplate">
+
+    <div class="main-content" style="padding-top: 100px;">
+
+        <div class="row">
+            <div class="col-md-4" id="content-1-block">
+                    <h3>User</h3><br>
+                   <div class="content-1-block-content">
+                    As a user you can access to quick and easy method to search your 
+                    travel companion. Details of all the FPT registered taxis and drivers
+                    are collected so that you can connect to your companion directly and 
+                    rate your exprience.
+                   </div>
+            </div>
+            <div class="col-md-4" id="content-1-block">
+                    <h3>Driver</h3><br>
+                   <div class="content-1-block-content">
+                    Drivers can upload their details to get hired by FPT users.
+                    FPT displays your profile providing you flexibility to earn 
+                    and invest time. 
+                   </div> 
+            </div>
+            <div class="col-md-4" id="content-1-block">
+                    <h3>Taxi owner</h3><br>
+                    <div class="content-1-block-content">
+                        Taxi owners can provide travel services to FPT users. FPT 
+                        makes it easy for owners to make available their rides for 
+                        all the users at once. 
+                    </div>
+            </div>
+           
+        </div>
+
+    </div>
+
+
+</template>
+
+<template name="footerTemplate">
+
+    <div class="footer">
+    
+        <div class="column">
+
+            <div class="row-sm-4 row-md-4">
+                <div class="footer-block">Services</div>
+                <div class="footer-block">
+                    <ul>
+                        <li>Aurangabad</li>
+                        <li>Lucknow</li>
+                        <li>Chandigarh</li>
+                        <li>Bombay</li>
+                        <li>Ahemdabad</li>
+                    </ul>
+                </div>
+                <hr class="homehr">
+            </div>
+
+            <div class="row-sm-4 row-md-4">
+                <div class="footer-block">Social links</div>
+                <div class="footer-block">
+                    <ul><a href="#" id="icon" class="fa fa-instagram" style="font-size: 20px; color: white;"></a>
+                        <a href="#" id="icon" class="fa fa-whatsapp" style="font-size: 20px; color: white;"></a>
+                        <a href="#" id="icon" class="fa fa-envelope" style="font-size: 20px; color: white;"></a>
+                        <a href="#" id="icon" class="fa fa-phone" style="font-size: 20px; color: white;"></a>
+                        <a href="#" id="icon" class="fa fa-twitter" style="font-size: 20px; color: white;"></a>
+                    </ul>
+                </div>
+                <hr class="homehr">
+            </div>
+
+            <div class="row-sm-4 row-md-4">
+                <div class="footer-block2">
+                    <ul>
+                        <li><a href="#" style="color: white;">Terms and conditions</a></li>
+                        <li><a href="#" style="color: white;">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <hr class="homehr" style="width: 100%;">
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+</template>

@@ -1,0 +1,14 @@
+<template name="home">  
+
+    {{> navTemplate}}
+
+    <div class="content-layout"> 
+        {{> homeHeadTemplate}}
+        {{> mainContentTemplate}}
+        {{> footerTemplate}}
+    </div> 
+
+    {{> modalForm}}
+    {{> searchResultModal filtered=filtered driver=driver taxi=taxi filteredLocation=filteredLocation}}
+
+</template>

@@ -1,0 +1,97 @@
+.body-content{
+    height: 600px;
+    width: 100%;
+    border: 1px solid transparent;
+    margin-top: 50px;   
+    position: fixed;
+    overflow-y: scroll;  
+}
+.form-layout{
+    border: 1px solid transparent;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.signup-heading{
+    border: 1px solid transparent   ;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+}
+.sub-heading{
+    border: 1px solid transparent   ;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+form
+{
+        border: 1px solid transparent;
+        background-color: rgb(241, 241, 241);
+        height: 900px;
+        width: fit-content;
+        padding-left: 20%;
+        padding-top: 5%;
+        padding-right: 20%;
+        margin-left:6%;
+}
+.signupHeader
+{
+        border: 1px solid transparent;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
+        background-color: rgb(241, 241, 241);
+        margin-left:6%;
+        width: 565px;
+}
+.js-input-charges{
+    height: 20px;
+    width: 100px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-top: 3px;
+    padding: 4%;
+    border: 1px solid rgba(219, 219, 219, 0.75);
+}
+#user-js-submit #driver-js-submit #taxi-user-submit{
+    float: right;
+    width: 80px;
+    font-size: 12px;
+    margin-top: 30px;
+}
+#role-option{
+    border: 1px solid transparent;
+    text-align: center;
+    visibility: hidden;
+}
+#role-option-taxi, #role-option-driver{
+    border: 1px solid rgba(219, 219, 219, 0.75);
+    font-size: 14px;
+    width: 48%;
+}
+@media screen and (max-width: 700px){
+    form{
+        margin-left: 0%;
+        height: 800px;
+        margin-bottom: 20px;
+    }
+    header{
+        margin-left: 0%;
+        width: 500px;
+    }
+    #role-option{
+        visibility: visible;
+        margin-top: 50px;
+    }
+    .signupHeader{
+        margin-left: 0%;
+        width: 500px;
+    }
+    #buisnessModal{
+        margin-left: 80px;
+    }
+}

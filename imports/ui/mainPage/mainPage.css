@@ -1,0 +1,168 @@
+.sidenav{
+    border: 1px solid transparent;
+    background-color: rgb(241, 241, 241);
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 275px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-y: disabled;
+    overflow-x: disabled;
+    margin-top: 42px;
+}
+.navTemplate2{
+    background-color: rgb(255, 196, 0); 
+    text-align: center;
+    padding: 10px; 
+    position: fixed;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 550;
+    border: 1px solid transparent;
+}
+.container{
+    margin-top: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid transparent;
+    height: fit-content;
+    width: 100%;
+}
+.searchBox{
+    border: 1px solid transparent;
+    height: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.js-search2{
+    border: 1px solid rgba(219, 219, 219, 0.75);
+    height: 35px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+#searchLocationButton2{
+    margin-top: 10px;
+    float: right;
+    font-size: 12px;
+}
+.searched-location{
+    border: 1px solid transparent;;
+                height: fit-content;
+                width: 100%;
+                margin-left: 250px;
+                margin-top: 70px;
+                padding-left: 50px;
+                position: fixed;
+}
+#settings-tab{
+    margin-top:295px;
+    width: 100%;
+    border: 1px solid rgba(219, 219, 219, 0.75);
+    text-align: center;
+    font-size: 12px;
+}
+.card{
+    background-color: white;
+    width: 80%;
+    padding: 5%;
+    margin: 10px;
+    border: 1px solid transparent;
+}
+.block-title{
+    border: 1px solid transparent;
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+.imageblock{
+    height: 100px;
+    width: 100%;
+    border: 1px solid transparent;
+    background-image: url(car.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.person-photo{
+    height: 105px;
+    width: 100px;
+    margin-left: 25%;
+    background-color: rgba(219, 219, 219, 0.75);
+}
+.main-content-container{
+    border: 1px solid transparent;;
+                height: 575px;
+                width: 82%;
+                margin-left: 250px;
+                margin-top: 85px;
+                padding-left: 150px;
+                position: fixed;
+                overflow: scroll; 
+}
+.mainhr{
+    height: 1px; 
+    background-color: rgba(219, 219, 219, 0.75); 
+    width: 80%; 
+    float: left;
+}
+
+
+@media screen and (max-width: 700px) {
+    .sidenav{
+        width: 100%;
+        height: 200px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .container{
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    .searched-location{
+        float: none;
+    }
+    .js-search2{
+        width: 65%;
+        margin-left: 20px;
+    }
+    .searched-location{
+        margin-top: 250px;
+        margin-left: 0px;
+        padding-left: 10px;
+    }
+    .btn-info{
+        height: 30px;
+        font-size: 12px;
+        margin-right: 50px;
+    }
+    #settings-tab{
+        margin-top: 20px;
+        margin-left: 50px;
+        height: fit-content;
+        width: fit-content;
+    }
+    .main-content-container{
+        padding-left: 0px;
+       margin-left: 0px;
+       width: 100%;
+       height: 330px;
+       margin-top: 270px;
+       font-size: 12px;
+    }
+    .card{
+        width: 100%;
+    }
+    .block-title{
+        font-size: 18px;
+    }
+    .person-photo{
+        margin-left: 10%;
+        height: 90px;
+        width: 75px;
+    }
+    .mainhr{
+        width: 100%;
+    }
+}

@@ -1,0 +1,252 @@
+<template name="settingsNav">
+    <nav class="navTemplate2">
+        <nav-item>Settings</nav-item>
+        <nav-item style="float: left;">
+            <button style="background-color:  rgb(255, 196, 0);border: none;" class="navbar-toggler" data-toggle="collapse" data-target="#settingsSidenav">
+                <i href="#" id="navIcon" class="fa fa-bars"></i>
+            </button>
+        </nav-item>
+    </nav>
+</template>
+
+<template name="settingsSideNav">
+    
+        <div id="settingsSidenav" class="collapse navbar-collapse">
+    
+            <div class="settings-heading">FPT </div>
+    
+            <button id="tab" class="role-tab"> Edit info </button> 
+            {{#if driver}}
+                <button id="tab" class="driver-avail-tab">
+                   <div class="row">
+    
+                       <div class="col-md-6"> Driver Availability </div>
+                       
+                       <div class="col-md-6">
+                           <div class="switch">
+                                <div class="row">
+                                {{#if driverAvailability}}
+                                    <div class="col-md-6" id="driver-avail-on" style="background-color: gray;">on</div>
+                                    <div class="col-md-6" id="driver-avail-off" style="background-color:rgb(241, 241, 241);">off</div>
+                                {{else}}                                    
+                                    <button class="col-md-6" id="driver-avail-on" style="background-color:rgb(241, 241, 241);">on</button>
+                                    <button class="col-md-6" id="driver-avail-off" style="background-color: gray">off</button>
+                                {{/if}}
+                                </div>
+                            </div>
+                        </div>
+    
+                   </div>
+                </button>
+                {{#if taxi}}
+                {{else}}
+                    <button id="tab" class="addTaxiTab">Add Taxi</button>
+                {{/if}}
+            {{/if}}
+            {{#if taxi}}
+                <button id="tab" class="taxi-avail-tab">
+                    <div class="row">
+    
+                        <div class="col-md-6"> Taxi Availability </div>
+                        
+                        <div class="col-md-6">
+                            <div class="switch">
+                                 <div class="row">
+                                    {{#if taxiAvailability}}
+                                        <button class="col-md-6" id="taxi-avail-on" style="background-color: gray;">on</button>
+                                        <button class="col-md-6" id="taxi-avail-off" style="background-color:rgb(241, 241, 241);">off</button>
+                                    {{else}}
+                                        <button class="col-md-6" id="taxi-avail-on" style="background-color:rgb(241, 241, 241);">on</button>
+                                        <button class="col-md-6" id="taxi-avail-off" style="background-color: gray">off</button>
+                                     {{/if}}
+                                 </div>
+                             </div>
+                         </div>
+     
+                    </div>
+    
+                </button>
+                {{#if driver}}
+                {{else}}
+                        <button id="tab" class="addDriverTab">Add Driver</button>
+                {{/if}}
+            {{/if}}
+            <button id="tab" class="pass-tab"> change Password </button>
+            <button id="tab" class="app-tab"> Get App</button>
+            <button id="tab" class="logout-tab"> Logout </button>
+           
+        </div>
+
+</template>
+
+<template name="editRole">
+    {{#if driver}}
+        {{#each driverDetail}}
+            {{> driverDetailTemplate}}
+        {{/each}}
+    {{/if}}
+
+    {{#if taxi}}
+        {{#each taxiDetail}}
+            {{> taxiDetailTemplate}}
+        {{/each}}   
+    {{/if}}
+</template>
+
+<template name="appTab">
+
+</template>
+
+<template name="passTab">
+    {{> passForm}}
+</template>
+
+<template name="addTab">
+    {{#if driver}}
+        {{> taxiForm}}
+    {{/if}}
+
+    {{#if taxi}}
+         {{> driverForm}}
+    {{/if}}
+
+</template>
+
+<template name="driverDetailTemplate">
+
+    <header class="settingsHeader">
+        <h2>Driver Details</h2>
+    </header>
+
+    <form style="height: 650px;width: fit-content;" id="driverDetailForm">
+        
+        <label for="name">Name</label><br>
+        <input name="name" class="js-input" type="text" value={{name}}><br>
+
+        <label for="phone">Contact Number</label><br>
+        <input name="phone" class="js-input" type="tel" value={{phone}}><br>
+        
+        <label for="location">Location</label><br>
+        <input name="location" class="js-input" type="text"  value={{location}}><br>
+
+        <label for="license">Driving License Number</label><br>
+        <input name="license" class="js-input" type="number" value={{license}}><br>
+
+        <label for="email">Email</label><br>
+        <input name="email" class="js-input" type="email" value={{email}}><br>
+
+        <label for="charges">Charges</label><br>
+        Rs. <input name="charges" class="js-input-charges" type="number" value={{charges}}> / km<br>
+        
+        <button type="submit" id="driver-detail-js-submit" class="btn btn-success" style="float: right; margin: 10px;">Save Changes</button>
+    
+    </form>
+
+</template>
+<template name="taxiDetailTemplate">
+
+    <header class="settingsHeader">
+        <h2>Taxi Details</h2>
+    </header>
+
+    <form style="height: 700px;width: fit-content;" id="taxiDetailForm">
+        
+        <label for="name">Name</label><br>
+        <input name="name" class="js-input" type="text" value={{name}}><br>
+
+        <label for="phone">Contact Number</label><br>
+        <input name="phone" class="js-input" type="tel" value={{phone}}><br>
+        
+        <label for="location">Location</label><br>
+        <input name="location" class="js-input" type="text" value={{location}}><br>
+
+        <label for="taxiNo">Taxi Number</label><br>
+        <input name="taxiNo" class="js-input" type="number" value={{taxiNo}}><br>
+
+        <label for="taxiModel">Taxi Model</label><br>
+        <input name="taxiModel" class="js-input" type="text" value={{taxiModel}}><br>
+
+        <label for="email">Email</label><br>
+        <input name="email" class="js-input" type="email" value={{email}}><br>
+
+        <label for="charges">Charges</label><br>
+        Rs. <input name="charges" class="js-input-charges" type="number" value={{charges}}> / km<br>
+        
+        <button type="submit" id="taxi-detail-js-submit" class="btn btn-success" style="float: right; margin: 10px;">Save Changes</button>
+    
+    </form>
+
+</template>
+
+<template name="driverForm">
+
+    <header class="settingsHeader">
+        <h2>Driver Form</h2>
+    </header>
+
+    <form style="height: 500px;width: fit-content;" id="driverForm">
+
+        <label for="location">Location</label><br>
+        <input name="location" class="js-input" type="text" placeholder="City"  value={{location}}><br>
+
+        <label for="license">Driving License Number</label><br>
+        <input name="license" class="js-input" type="number" placeholder="XXXXXXXXXXXXXXX" value={{license}}><br>
+
+        <label for="charges">Charges</label><br>
+        Rs. <input name="charges" class="js-input-charges" type="number" value={{charges}}> / km<br>
+        
+        <button type="submit" id="driver-js-submit" class="btn btn-success" style="float: right; margin: 10px;">Submit</button>
+
+    </form>
+
+</template>
+
+<template name="taxiForm">
+
+    <header class="settingsHeader">
+        <h2>Taxi Form</h2>
+    </header>
+
+    <form style="height: 500px;width: fit-content;" id="taxiForm">
+
+        <label for="location">Location</label><br>
+        <input name="location" class="js-input" type="text" placeholder="City" value={{location}}><br>
+
+        <label for="taxiNo">Taxi Number</label><br>
+        <input name="taxiNo" class="js-input" type="number" placeholder="XXXXXX" value={{taxiNo}}><br>
+
+        <label for="taxiModel">Taxi Model</label><br>
+        <input name="taxiModel" class="js-input" type="text" placeholder="Swift Desire" value={{taxiModel}}><br>
+
+        <label for="charges">Charges</label><br>
+        Rs. <input name="charges" class="js-input-charges" type="number" value={{charges}}> / km<br>
+        
+        <button type="submit" id="taxi-js-submit" class="btn btn-success" style="float: right; margin: 10px;">Submit</button>
+
+    </form>
+    
+</template>
+
+<template name="passForm">
+ 
+    <form class="oldPassForm" style="height: 200px; width: fit-content;">
+        
+        <label for="oldPassword">Old Password</label><br>
+        <input name="oldPassword" class="js-input" type="password" id="oldPassword"><br>
+
+        <button type="submit" id="oldPass-js-submit" class="btn btn-success" style="float: right; margin: 10px;">Check</button>
+
+    </form><br>
+    <form class="newPassForm" style="height: 300px; width: fit-content;">
+
+            <label for="newPassword1">New Password</label><br>
+            <input name="newPassword1" class="js-input" type="password" id="newPassword1"><br>
+
+            <label for="newPassword2">Confirm Password</label><br>
+            <input name="newPassword2" class="js-input" type="password" id="newPassword2"><br>
+
+            <button type="submit" id="newPass-js-submit" class="btn btn-success" style="float: right; margin: 10px;">Submit</button>
+
+    </form>
+
+</template>
