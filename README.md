@@ -2,7 +2,9 @@
 
 FPT - For Public Transport, Trial Web Application Project (html + css + javascript + meteor js + mongodb + twilio)
 
-This Application is mainly designed to provide driver and taxi details and availability information directly to users.
+This Application is mainly designed to provide driver and taxi details,search functionality, ratings and availability information directly to users.
+
+Project APK:
 
 Home Page View:
 
